@@ -1,0 +1,31 @@
+{
+    "column_order": [
+        "potw",
+        "year", 
+        "location",
+        "matrix", 
+        "size_fraction",
+        "replicate",
+        "particleid",
+        "chemicalid",
+        "chemical_type",
+        "width_um",
+        "height_um",
+        "morphology",
+        "pct_matched",
+        "predetermined_mp_yesno",
+        "hqi_exceed_sixty_yesno",
+        "notes",
+        "addition_info",
+        "original_filename"
+    ],
+    "l": "LAR",
+    "s": "SGR",
+    "u": "upstream",
+    "m": "midstream",
+    "d": "downstream",
+    "mesh": "mesh",
+    "ft_mos": "fish tissue mosquito",
+    "ft_til": "fish tissue tilapia",
+    "sd": "sediment"
+}
