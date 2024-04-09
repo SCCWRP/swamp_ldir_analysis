@@ -24,8 +24,16 @@
     "u": "upstream",
     "m": "midstream",
     "d": "downstream",
+    "n": "NA",
     "mesh": "mesh",
     "ft_mos": "fish tissue mosquito",
     "ft_til": "fish tissue tilapia",
-    "sd": "sediment"
+    "sd": "sediment",
+    "mesh fb": "mesh FB",
+    "mesh mpb": "mesh MPB",
+    "sd fb": "sediment FB",
+    "sd mpb": "sediment MPB",    
+    "ft fb": "fish tissue FB",
+    "ft mpb": "fish tissue MPB" 
+
 }

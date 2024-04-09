@@ -1,10 +1,11 @@
 import pandas as pd
 import json, os
+import numpy as np
 
 with open('config.json', 'r') as json_data:
     INFO = json.loads(json_data.read())
 
-PATH = os.path.join("data","raw")
+PATH = os.path.join("data","raw", "blanks")
 COLUMN_ORDER = INFO.get("column_order")
 FILENAME_DICT = pd.read_excel(os.path.join(os.getcwd(), "data", "filename-crosswalk-excel-files.xlsx"))
 FILENAME_DICT = {
@@ -18,6 +19,9 @@ for filename in [x for x in os.listdir(PATH) if '.xlsx' in x]:
     
     # Read the file
     df = pd.read_excel(os.path.join(PATH, filename), sheet_name='Particles')
+
+    # Only get the rows where there is no value in the Note column according to Sydney
+    df = df[pd.isnull(df['Notes'])]
 
     # Read the interpretation of the filename
     info = FILENAME_DICT.get(os.path.splitext(filename)[0])
@@ -49,7 +53,7 @@ for filename in [x for x in os.listdir(PATH) if '.xlsx' in x]:
     df['morphology'] = ''
     df['pct_matched'] = df['Quality']
     df['predetermined_mp_yesno'] = ''
-    df['hqi_exceed_sixty_yesno'] = ''
+    df['hqi_exceed_sixty_yesno'] = np.where(df['pct_matched'] > 0.60, 'y', 'n')
     df['notes'] = df['Notes']
     df['original_filename'] = filename.replace(".xlsx","")
     df = df.assign(
